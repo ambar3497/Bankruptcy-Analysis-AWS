@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Company Bankruptcy Prediction</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.rhmfirm.com/assets/mainstage/mainstage-v1-bg.2306261459550.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto; /* Adjusted margin for better positioning */
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            border-radius: 8px;
+            box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #800000; /* Maroon color for the main heading */
+            margin-bottom: 20px; /* Reduced margin bottom */
+            font-size: 36px; /* Larger font size for the heading */
+            font-style: italic; /* Italicize the heading */
+        }
+
+        form {
+            padding: 20px;
+        }
+
+        label {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px); /* Slightly reduced input width */
+            padding: 6px; /* Smaller padding for input boxes */
+            margin-bottom: 10px; /* Reduced margin bottom for inputs */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px; /* Slightly smaller font size */
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #800000; /* Maroon color for submit button */
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5b0000; /* Darker shade of maroon on hover */
+        }
+        .predict-button {
+            margin-bottom: 1rem;
+          }
+      
+        .model-prediction {
+            margin-top: 1rem;
+          }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Company Bankruptcy Predictor</h1>
+        <form method="post" action="/predict">
+            
+            <label for="Net_Income_to_Total_Assets_Ratio">Net Income to Total Assets Ratio</label>
+            <input type="text" name="Net_Income_to_Total_Assets_Ratio">
+        
+            <label for="Income_to_Expense_Ratio">Income to Expense Ratio</label>
+            <input type="text" name="Income_to_Expense_Ratio">
+            
+            <label for="Borrowing_Dependency_Ratio">Borrowing Dependency Ratio</label>
+            <input type="text" name="Borrowing_Dependency_Ratio">
+            
+            <label for="Retained_Earnings_to_Assets_Ratio">Retained Earnings to Assets Ratio</label>
+            <input type="text" name="Retained_Earnings_to_Assets_Ratio">
+            
+            <label for="Debt_to_Net_Worth_Ratio">Debt to Net Worth Ratio</label>
+            <input type="text" name="Debt_to_Net_Worth_Ratio">
+
+            <input type="submit" value="Predict">
+
+            <label class="model-prediction">Model Prediction:</label>
+            {% if result %}
+            <p>{{ result }}</p>
+            {% endif %}
+    
+        </form>
+
+    </div>
+    </div>
+
+</body>
+</html>
